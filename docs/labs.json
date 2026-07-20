@@ -32,16 +32,16 @@
   {
     "week": "week-03",
     "title": "Responsive Web UI & Form Interaction",
-    "status": "ready",
+    "status": "submitted",
     "originalRepoUrl": "https://github.com/beem35/engse203-lab03-68543210035-0",
     "originalCommit": "2dced59",
-    "pullRequestUrl": "https://github.com/beem35/engse203-student-labs-68543210035/pull/6",
+    "pullRequestUrl": "https://github.com/beem35/engse203-student-labs-68543210035/pull/7",
     "submissionTag": "lab-03-submission-v1",
     "testStatus": "pass",
     "notes": "Static site ต้องมี index.html ที่ publish root",
     "pageUrl": "https://beem35.github.io/engse203-student-labs-68543210035/labs/week-03/",
     "sourceUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-03/labs/week-03/source",
     "hasPublish": true,
-    "sourceEntries": 9
+    "sourceEntries": 8
   }
 ]
