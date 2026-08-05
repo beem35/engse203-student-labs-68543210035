@@ -1,11 +1,11 @@
 {
   "week": "week-04",
   "title": "React Campus Service Request",
-  "status": "ready",
-  "originalRepoUrl": "",
-  "originalCommit": "",
-  "pullRequestUrl": "",
+  "status": "submitted",
+  "originalRepoUrl": "https://github.com/beem35/engse203-student-labs-68543210035",
+  "originalCommit": "4808123a",
+  "pullRequestUrl": "https://github.com/beem35/engse203-student-labs-68543210035/pull/8",
   "submissionTag": "lab-04-submission-v1",
   "testStatus": "pass",
-  "notes": ""
+  "notes": "Finished LAB 4: React State-driven UI, Controlled Forms, and Immutable Array Updates."
 }
