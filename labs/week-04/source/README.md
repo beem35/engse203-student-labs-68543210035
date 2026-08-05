@@ -72,8 +72,7 @@ Callback:
 | TC-09 Mobile                                                  | Layout หน้าเว็บปรับเปลี่ยนให้ฟอร์มอยู่ด้านบนและรายการอยู่ด้านล่าง ไม่ล้นจอ และสามารถใช้งานได้ปกติ                               | Pass                              | ![alt text](./evidence/TC-09.png) |
 | TC-10 Keyboard                                                | สามารถใช้ปุ่ม Tab เลื่อนโฟกัส (Focus) ไปตามช่อง Input, Dropdown และสามารถกด Enter เพื่อกดปุ่มต่างๆ ได้โดยไม่ต้องใช้เมาส์        | Pass                              | ![alt text](./evidence/TC-10.png) |
 | TC-11 Build                                                   | ระบบสามารถแพ็กไฟล์ (Build) จนเสร็จสมบูรณ์โดยไม่มี Error แจ้งเตือน และได้โฟลเดอร์ dist ออกมา                                     | Pass                              | ![alt text](./evidence/TC-11.png) |
-| TC-12 Pages                                                   | สามารถเปิดดูเว็บเวอร์ชัน Build บนพอร์ต Localhost ได้                                                                            |
-| หน้าเว็บแสดงผลและฟังก์ชันทุกอย่างทำงานได้ปกติเหมือนตอนรัน dev | Pass                                                                                                                            | ![alt text](./evidence/TC-12.png) |
+| TC-12 Pages                                                   | สามารถเปิดดูเว็บเวอร์ชัน Build บนพอร์ต Localhost ได้หน้าเว็บแสดงผลและฟังก์ชันทุกอย่างทำงานได้ปกติเหมือนตอนรัน dev | Pass                                        | ![alt text](./evidence/TC-12.png) |
 
 ## Screenshots
 
