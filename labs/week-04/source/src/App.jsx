@@ -1,68 +1,59 @@
-import { useState } from "react";
-import AppHeader from "./components/AppHeader.jsx";
-import SummaryPanel from "./components/SummaryPanel.jsx";
-import FilterBar from "./components/FilterBar.jsx";
-import TaskList from "./components/TaskList.jsx";
-import TaskForm from "./components/TaskForm.jsx";
-import { initialTasks } from "./data/initialTasks.js";
-
+import AppHeader from './components/AppHeader.jsx';
+import SummaryPanel from './components/SummaryPanel.jsx';
+import RequestForm from './components/RequestForm.jsx';
+import FilterBar from './components/FilterBar.jsx';
+import RequestList from './components/RequestList.jsx';
+import { initialRequests } from './data/initialRequests.js';
 
 function App() {
-  const [tasks, setTasks] = useState(initialTasks);
-  const [statusFilter, setStatusFilter] = useState("all");
+  // TODO LAB4-R04: เปลี่ยน requests/statusFilter เป็น state
+  const requests = initialRequests;
+  const statusFilter = 'all';
 
-  // 1. นำฟังก์ชัน handleAddTask ที่คุณให้มา มาวางตรงนี้                                                          
-  // ฟังก์ชันนี้จะรับข้อมูลก้อนสำเร็จรูป (taskData) มาจาก TaskForm อีกที                                              
-  function handleAddTask(taskData) {
-    const newTask = {
-      id: `TASK-${Date.now()}`,
-      ...taskData,      // เอาชื่องานและหมวดหมู่ที่กรอกมาใส่ลง Object นี้                                        
-      status: 'todo',   // เซ็ตสถานะเริ่มต้นให้เป็น todo                                                      
-    };
-
-    // อัปเดตรายการงานเดิม โดยเพิ่มงานใหม่เข้าไป                                                              
-    setTasks((currentTasks) => [newTask, ...currentTasks]);
-  };
-
+  // TODO LAB4-R04: คำนวณ summary เป็น derived data
   const summary = {
-    total: tasks.length,
-    todo: tasks.filter((task) => task.status === "todo").length,
-    doing: tasks.filter((task) => task.status === "doing").length,
-    done: tasks.filter((task) => task.status === "done").length,
+    total: requests.length,
+    pending: 0,
+    inProgress: 0,
+    completed: 0,
   };
-  const filteredTasks =
-    statusFilter === "all"
-      ? tasks
-      : tasks.filter((task) => task.status === statusFilter);
 
-  function handleDeleteTask(taskId) {
-    if (tasks.length === 0) {
-      return <EmptyState />;
-    }
-    setTasks((currentTasks) =>
-      currentTasks.filter((task) => task.id !== taskId),
-    );
+  // TODO LAB4-R08: คำนวณ filteredRequests จาก requests + statusFilter
+  const filteredRequests = requests;
+
+  function handleAddRequest(requestData) {
+    console.log('TODO add request', requestData);
   }
+
+  function handleDeleteRequest(requestId) {
+    console.log('TODO delete request', requestId);
+  }
+
   return (
     <>
       <AppHeader
-        title="Study Task Board"
-        subtitle="CP03 — State, derived data และ filter"
+        title="Campus Service Request"
+        subtitle="LAB 4 Starter — เปลี่ยน DOM-driven UI เป็น State-driven React UI"
       />
-
       <main className="container page-content">
         <SummaryPanel summary={summary} />
-        <section className="panel">
-
-          {/* 2. โยนฟังก์ชัน handleAddTask ลงไปให้ TaskForm เพื่อให้มันเรียกใช้ตอน Submit */}
-          <TaskForm onAddTask={handleAddTask} />
-
-          <FilterBar value={statusFilter} onFilterChange={setStatusFilter} />
-          <TaskList tasks={filteredTasks} onDeleteTask={handleDeleteTask} />
-        </section>
+        <div className="workspace-grid">
+          <RequestForm onAddRequest={handleAddRequest} />
+          <section className="panel" aria-labelledby="request-list-title">
+            <div className="section-heading">
+              <h2 id="request-list-title">รายการคำร้อง</h2>
+              <FilterBar value={statusFilter} onFilterChange={() => {}} />
+            </div>
+            <RequestList
+              requests={filteredRequests}
+              onDeleteRequest={handleDeleteRequest}
+            />
+          </section>
+        </div>
       </main>
     </>
   );
 }
 
 export default App;
+
