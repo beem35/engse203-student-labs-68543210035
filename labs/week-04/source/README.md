@@ -9,8 +9,8 @@
 ## URLs
 
 - Repository: [engse203-student-labs-68543210035](https://github.com/beem35/engse203-student-labs-68543210035.git)
-- Pull Request: -
-- GitHub Pages: -
+- Pull Request: https://github.com/beem35/engse203-student-labs-68543210035/pull/8
+- GitHub Pages: https://beem35.github.io/engse203-student-labs-68543210035/
 
 ## Component Tree
 
