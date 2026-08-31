@@ -8,6 +8,9 @@ function PriorityBadge({ priority }) {
     } else if (priority === 'normal') {
         badgeClass = 'priority-normal';
         badgeText = 'ปกติ';
+    }else {
+        badgeClass = 'priority-unknown';
+        badgeText = 'ไม่ระบุ';
     }
     return <span className={badgeClass}>{badgeText}</span>;
 }
