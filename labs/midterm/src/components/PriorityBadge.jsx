@@ -4,7 +4,7 @@ function PriorityBadge({ priority }) {
     let badgeText = '';
     if (priority === 'urgent') {
         badgeClass = 'priority-urgent';
-        badgeText = 'ด่วน';
+        badgeText = 'เร่งด่วน';
     } else if (priority === 'normal') {
         badgeClass = 'priority-normal';
         badgeText = 'ปกติ';
