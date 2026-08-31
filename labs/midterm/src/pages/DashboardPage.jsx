@@ -56,7 +56,7 @@ function DashboardPage() {
 
   const filteredRequests = statusFilter === 'all'
     ? requests.filter((request) => matchName(request) || matchDetails(request))
-    : requests.filter((request) => request.status === statusFilter );
+    : requests.filter((request) => request.status === statusFilter && (matchName(request) || matchDetails(request)));
 
   function handleRetry() {
     if (scenario) setSearchParams({});
