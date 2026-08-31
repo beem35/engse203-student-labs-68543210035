@@ -50,10 +50,13 @@ function DashboardPage() {
     completed: requests.filter((request) => request.status === 'completed').length,
   }), [requests]);
 
-  const filteredRequests = statusFilter === 'all'
-    ? requests
+  const query = statusSearch.trim().toLowerCase();
+  const matchName = (request) => request.requesterName.toLowerCase().includes(query);
+  const matchDetails = (request) => request.details.toLowerCase().includes(query);
 
-    : requests.filter((request) => request.status === statusFilter);
+  const filteredRequests = statusFilter === 'all'
+    ? requests.filter((request) => matchName(request) || matchDetails(request))
+    : requests.filter((request) => request.status === statusFilter );
 
   function handleRetry() {
     if (scenario) setSearchParams({});
