@@ -109,7 +109,7 @@ function DashboardPage() {
             <input type="text" placeholder="ค้นหาจากผู้แจ้งหรือรายละเอียด" value={statusSearch} onChange={(e) => setStatusSearch(e.target.value)} />
             {/* <p>ผลลัพธ์: {filteredRequests.length} รายการ</p> */}
             {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
-            <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} />
+            <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} emptyStateMessage={statusSearch.trim() ? "ไม่พบคำร้องที่ตรงกับการค้นหา" : "ไม่มีคำร้องที่ตรงกับตัวกรองนี้"} />
           </section>
         </>
       )}
