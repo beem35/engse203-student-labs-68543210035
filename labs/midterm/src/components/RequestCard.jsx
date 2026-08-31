@@ -11,9 +11,17 @@ function RequestCard({ request, onDeleteRequest }) {
         {/* TODO B4: แทน {request.priority} ด้านล่างด้วย <PriorityBadge priority={request.priority} /> ที่คุณสร้าง */}
         <p><span className={`badge ${request.status}`}>{request.status}</span> · {request.priority}</p>
       </div>
-      <button className="button danger" type="button" onClick={() => onDeleteRequest(request.id)} aria-label={`ลบคำร้อง ${request.id}`}>
-        ลบ
-      </button>
+      <div>
+        {request.status !== 'completed' && (
+          <button className="button secondary" type="button" onClick={() => onMarkDone(request.id)} aria-label={`ทำเครื่องหมายคำร้อง ${request.id} ว่าเสร็จแล้ว`}>
+            ทำเสร็จ
+          </button>
+        )}
+        <button className="button danger" type="button" onClick={() => onDeleteRequest(request.id)} aria-label={`ลบคำร้อง ${request.id}`}>
+          ลบ
+        </button>
+      </div>
+
     </article>
   );
 }
