@@ -4,6 +4,7 @@ import ErrorState from '../components/ErrorState.jsx';
 import LoadingState from '../components/LoadingState.jsx';
 import useManualReload from '../hooks/useManualReload.js';
 import { getRequestById } from '../services/requestService.js';
+import PriorityBadge from '../components/PriorityBadge.jsx';
 
 function RequestDetailPage() {
   const { requestId } = useParams();
@@ -38,7 +39,7 @@ function RequestDetailPage() {
       {loadState === 'success' && request && (
         <article className="panel detail-card">
           <h2>{request.requestType}</h2>
-          <dl><div><dt>ID</dt><dd>{request.id}</dd></div><div><dt>ผู้แจ้ง</dt><dd>{request.requesterName}</dd></div><div><dt>สถานที่</dt><dd>{request.location}</dd></div><div><dt>รายละเอียด</dt><dd>{request.details}</dd></div><div><dt>ความเร่งด่วน</dt><dd>{request.priority}</dd></div><div><dt>สถานะ</dt><dd>{request.status}</dd></div></dl>
+          <dl><div><dt>ID</dt><dd>{request.id}</dd></div><div><dt>ผู้แจ้ง</dt><dd>{request.requesterName}</dd></div><div><dt>สถานที่</dt><dd>{request.location}</dd></div><div><dt>รายละเอียด</dt><dd>{request.details}</dd></div><div><dt>ความเร่งด่วน</dt><dd><PriorityBadge priority={request.priority} /></dd></div><div><dt>สถานะ</dt><dd>{request.status}</dd></div></dl>
           <Link to="/">กลับ Dashboard</Link>
         </article>
       )}
