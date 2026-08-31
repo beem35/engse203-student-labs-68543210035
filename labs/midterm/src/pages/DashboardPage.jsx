@@ -6,7 +6,7 @@ import LoadingState from '../components/LoadingState.jsx';
 import RequestList from '../components/RequestList.jsx';
 import SummaryPanel from '../components/SummaryPanel.jsx';
 import useManualReload from '../hooks/useManualReload.js';
-import { deleteRequest, getRequests, resetRequests } from '../services/requestService.js';
+import { deleteRequest, getRequests, resetRequests ,updateRequestStatus} from '../services/requestService.js';
 
 function DashboardPage() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -84,6 +84,15 @@ function DashboardPage() {
       setNotice(error instanceof Error ? error.message : 'คืนข้อมูลไม่สำเร็จ');
     }
   }
+  async function handleMarkDone(requestId) {
+    try {
+      const nextRequests = await updateRequestStatus(requestId, 'completed');
+      setRequests(nextRequests);
+      setNotice(`ทำเครื่องหมายคำร้อง ${requestId} ว่าเสร็จแล้ว`);
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : 'อัปเดตสถานะไม่สำเร็จ');
+    }
+  }
 
   return (
     <section data-testid="page-dashboard">
@@ -109,7 +118,7 @@ function DashboardPage() {
             <input type="text" placeholder="ค้นหาจากผู้แจ้งหรือรายละเอียด" value={statusSearch} onChange={(e) => setStatusSearch(e.target.value)} />
             {/* <p>ผลลัพธ์: {filteredRequests.length} รายการ</p> */}
             {/* TODO B3: เพิ่ม onMarkDone={handleMarkDone} และเขียน handleMarkDone ให้เรียก updateRequestStatus แล้ว setRequests เพื่อให้ summary อัปเดต + รอด refresh */}
-            <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} emptyStateMessage={statusSearch.trim() ? "ไม่พบคำร้องที่ตรงกับการค้นหา" : "ไม่มีคำร้องที่ตรงกับตัวกรองนี้"} />
+            <RequestList requests={filteredRequests} onDeleteRequest={handleDelete} onMarkDone={handleMarkDone} emptyStateMessage={statusSearch.trim() ? "ไม่พบคำร้องที่ตรงกับการค้นหา" : "ไม่มีคำร้องที่ตรงกับตัวกรองนี้"} />
           </section>
         </>
       )}
