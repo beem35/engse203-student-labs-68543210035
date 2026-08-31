@@ -19,16 +19,16 @@
 - แก้อย่างไร: เปลี่ยนเป็น === แทน
 
 ## บั๊กที่ 4 — อาการ: เปลี่ยน URL จาก REQ-001 เป็น REQ-002 แล้วข้อมูลไม่เปลี่ยน
-- ไฟล์/บรรทัด:
-- สาเหตุ:
-- แก้อย่างไร:
+- ไฟล์/บรรทัด: src/pages/RequestDetailPage.jsx:28 useEffect()
+- สาเหตุ: useEffect มีการใช้ requestId แต่ไม่ได้ใส่ไว้ใน Dependency Array
+- แก้อย่างไร: เพิ่ม requestId ลงใน Dependency Array
 
 ## บั๊กที่ 5 — อาการ: กด "ลบ" แล้วรายการยังอยู่ ต้องรีเฟรชถึงหาย
-- ไฟล์/บรรทัด:
-- สาเหตุ:
-- แก้อย่างไร:
+- ไฟล์/บรรทัด: src/pages/DashboardPage.jsx:65 function handleDelete()
+- สาเหตุ: setRequests(requests) ใช้ array ตัวเก่า แทนที่จะใข้ nextRequests ทำให้ไม่ยอม render ใหม่
+- แก้อย่างไร: เปลี่ยนเป็น setRequests(nextRequests);
 
 ## บั๊กที่ 6 — อาการ: กด "Reset Demo Data" แล้วหน้าพัง/ว่างเปล่า
-- ไฟล์/บรรทัด:
-- สาเหตุ:
-- แก้อย่างไร:
+- ไฟล์/บรรทัด: src/pages/DashboardPage.jsx:75 function handleReset()
+- สาเหตุ: function resetRequests() เป็น async แต่ไม่มี await ทำให้ เกิด Runtime Error จนหน้าเว็บพัง
+- แก้อย่างไร: ใส่ await ในการเรียก ฟังก์ชัน resetRequests()
