@@ -22,9 +22,9 @@ vite v8.1.5 building client environment for production...
 computing gzip size...
 dist/index.html                   0.49 kB │ gzip:  0.31 kB
 dist/assets/index-D8mKQ_P5.css    5.19 kB │ gzip:  1.77 kB
-dist/assets/index-B75JBUsG.js   254.23 kB │ gzip: 80.09 kB
+dist/assets/index-C_NPAFuJ.js   254.25 kB │ gzip: 80.09 kB
 
-✓ built in 625ms
+✓ built in 467ms
 ```
 
 ---
