@@ -40,6 +40,6 @@
 
 ## Screenshot ที่แนบ
 
-- [ ] `images/postman-get-200.png`
-- [ ] `images/postman-post-201.png`
-- [ ] `images/terminal-logger.png`
+- [ / ] `images/postman-get-200.png`
+- [ / ] `images/postman-post-201.png`
+- [ / ] `images/terminal-logger.png`
