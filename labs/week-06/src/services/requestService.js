@@ -59,7 +59,7 @@ function createId() {
  * ลำดับ: สร้าง object ใหม่ (ใช้ createId()) → ตัดช่องว่างหัวท้ายทุก field ที่เป็นข้อความ
  *        → status เริ่มต้นเป็น 'pending' เสมอ → push เข้า requests → คืนสำเนา
  */
-export function create(input) {
+export  function create(input) {
   const newRequest = {
     id: createId(),
     requesterName: input.requesterName.trim(),
@@ -69,7 +69,9 @@ export function create(input) {
     priority: input.priority,
     status: 'pending',
   };
+  
   requests.push(newRequest);
+   persist();
   return structuredClone(newRequest);
 }
 
@@ -77,13 +79,14 @@ export function create(input) {
  * TODO W06-S4 (⭐ Challenge) · เปลี่ยนสถานะคำร้อง
  * - ไม่พบคืน null · พบแล้วเปลี่ยน status และคืนสำเนา
  */
-export function updateStatus(id, status) {
+export  function updateStatus(id, status) {
   // if(!["pending","in-progress","completed"].includes(status)){
   //   throw new Error(`สถานะ ${status} ไม่ถูกต้อง`);
   // }
   const found = requests.find((r) => r.id === id);
   if (!found) return null;
   found.status = status;
+   persist();
   return structuredClone(found);
 }
 
@@ -92,8 +95,9 @@ export function updateStatus(id, status) {
  * - คืน true ถ้าลบได้จริง · คืน false ถ้าไม่พบรหัสนั้น
  * - ใช้ .filter() สร้าง array ใหม่ อย่าแก้ array เดิม
  */
-export function remove(id) {
+export  function remove(id) {
   const before = requests.length;
   requests = requests.filter((r) => r.id !== id);
+   persist();
   return requests.length < before;
 }

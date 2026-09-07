@@ -35,7 +35,7 @@ export function getRequest(req, res) {
  * ⚠ POST สำเร็จตอบ 201 ไม่ใช่ 200
  */
 export function createRequest(req, res) {
-  const created = service.create(req.body);
+  const created =  service.create(req.body);
   res.status(201).json(created);
 }
 
@@ -44,15 +44,14 @@ export function createRequest(req, res) {
  * - status ที่รับได้: 'pending' | 'in-progress' | 'completed'
  * - status ไม่ถูกต้อง → 400 · ไม่พบคำร้อง → 404 · สำเร็จ → 200
  */
-export function updateRequestStatus(req, res) {
+export  function updateRequestStatus(req, res) {
  
   const updateStatus = req.body.status;
   if (!["pending","in-progress","completed"].includes(updateStatus)) {
     return res.status(400).json({message : `status ไม่อยู่ใน 3 ค่าที่ยอมรับ ${updateStatus}`});
   }
-  const update = service.updateStatus(req.params.id , updateStatus);
+  const update =  service.updateStatus(req.params.id , updateStatus);
     // return res.status(400).json({message : `status ไม่อยู่ใน 3 ค่าที่ยอมรับ ${update.status}`});
-  
   
   if (!update) {
     return res.status(404).json({message : `ไม่พบคำร้องรหัส ${req.params.id}`});
@@ -64,10 +63,11 @@ export function updateRequestStatus(req, res) {
  * TODO W06-C5 (CP05) · DELETE /api/requests/:id
  * - ไม่พบ → 404 · ลบสำเร็จ → 204 (ไม่มีข้อมูลส่งกลับ ใช้ res.status(204).end())
  */
-export function deleteRequest(req, res) {
-  const removed = service.remove(req.params.id);
+export  function deleteRequest(req, res) {
+  const removed =  service.remove(req.params.id);
   if (!removed) {
     return res.status(404).json({ error: `ไม่พบคำร้องรหัส ${req.params.id}` });
   }
   res.status(204).end();
+  
 }
