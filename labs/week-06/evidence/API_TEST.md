@@ -1,20 +1,20 @@
 # API_TEST — LAB 06
 
-**ชื่อ–รหัส:** ______________________ **วันที่ทดสอบ:** ____________
+**ชื่อ–รหัส:** ปัณณวัฒน์ สิทธิตัน **วันที่ทดสอบ:** 07/09/69
 
 > บันทึก **ผลจริง** ที่เห็น ไม่ใช่ผลที่ควรได้ · ถ้าไม่ผ่านให้เขียนว่าไม่ผ่าน
 
 | # | Method | Path | ส่งอะไร | status ที่ควรได้ | status ที่ได้จริง | ผ่าน |
 |---|---|---|---|---|---|---|
-| 1 | GET | `/` | — | 200 | | ☐ |
-| 2 | GET | `/api/requests` | — | 200 | | ☐ |
-| 3 | GET | `/api/requests/REQ-001` | — | 200 | | ☐ |
-| 4 | GET | `/api/requests/REQ-999` | — | 404 | | ☐ |
-| 5 | POST | `/api/requests` | ข้อมูลครบถูกต้อง | 201 | | ☐ |
-| 6 | POST | `/api/requests` | `{"requesterName":"x"}` | 400 | | ☐ |
-| 7 | DELETE | `/api/requests/REQ-003` | — | 204 | | ☐ |
-| 8 | DELETE | `/api/requests/REQ-999` | — | 404 | | ☐ |
-| 9 | GET | `/api/unknown` | — | 404 | | ☐ |
+| 1 | GET | `/` | — | 200 | 200 | ☑ |
+| 2 | GET | `/api/requests` | — | 200 | 200 | ☑ |
+| 3 | GET | `/api/requests/REQ-001` | — | 200 | 200 | ☑ |
+| 4 | GET | `/api/requests/REQ-999` | — | 404 | 404 | ☑ |
+| 5 | POST | `/api/requests` | ข้อมูลครบถูกต้อง | 201 | 201 | ☑ |
+| 6 | POST | `/api/requests` | `{"requesterName":"x"}` | 400 | 400 | ☑ |
+| 7 | DELETE | `/api/requests/REQ-003` | — | 204 | 204 | ☑ |
+| 8 | DELETE | `/api/requests/REQ-999` | — | 404 | 404 | ☑ |
+| 9 | GET | `/api/unknown` | — | 404 | 404 | ☑ |
 
 ## ⭐ Challenge (ถ้าทำ)
 

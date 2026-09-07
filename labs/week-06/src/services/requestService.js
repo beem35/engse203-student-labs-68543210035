@@ -78,7 +78,13 @@ export function create(input) {
  * - ไม่พบคืน null · พบแล้วเปลี่ยน status และคืนสำเนา
  */
 export function updateStatus(id, status) {
-  throw new Error('TODO W06-S4: updateStatus');
+  // if(!["pending","in-progress","completed"].includes(status)){
+  //   throw new Error(`สถานะ ${status} ไม่ถูกต้อง`);
+  // }
+  const found = requests.find((r) => r.id === id);
+  if (!found) return null;
+  found.status = status;
+  return structuredClone(found);
 }
 
 /**

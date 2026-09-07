@@ -45,7 +45,19 @@ export function createRequest(req, res) {
  * - status ไม่ถูกต้อง → 400 · ไม่พบคำร้อง → 404 · สำเร็จ → 200
  */
 export function updateRequestStatus(req, res) {
-  throw new Error('TODO W06-C4: updateRequestStatus');
+ 
+  const updateStatus = req.body.status;
+  if (!["pending","in-progress","completed"].includes(updateStatus)) {
+    return res.status(400).json({message : `status ไม่อยู่ใน 3 ค่าที่ยอมรับ ${updateStatus}`});
+  }
+  const update = service.updateStatus(req.params.id , updateStatus);
+    // return res.status(400).json({message : `status ไม่อยู่ใน 3 ค่าที่ยอมรับ ${update.status}`});
+  
+  
+  if (!update) {
+    return res.status(404).json({message : `ไม่พบคำร้องรหัส ${req.params.id}`});
+  }
+  res.status(200).json(update);
 }
 
 /**
