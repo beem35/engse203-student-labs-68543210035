@@ -19,8 +19,8 @@ function record(id, scope, name, ok, detail = '') {
 
 async function setup() {
   try {
-    const { createApp } = await import('../src/app.js');
-    const { loadSeed } = await import('../src/services/requestService.js');
+    const { createApp } = await import('../source/app.js');
+    const { loadSeed } = await import('../source/services/requestService.js');
     await loadSeed();
     app = createApp();
     return true;
