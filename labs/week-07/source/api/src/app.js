@@ -3,11 +3,12 @@ import cors from 'cors';
 import { config } from './config.js';
 import { logger } from './middleware/logger.js';
 import requestRoutes from './routes/requestRoutes.js';
-import { errorHandler, notFound } from './middleware/errorHandler.js';
+import { AppError, errorHandler, notFound } from './middleware/errorHandler.js';
+import morgan from 'morgan';
 
 export function createApp() {
   const app = express();
-  app.use(cors({ origin: config.corsOrigin }));
+  app.use(logger);
   /**
    * TODO W07-A1 (CP10) · เปิด CORS
    *   app.use(cors({ origin: config.corsOrigin }))
@@ -16,18 +17,19 @@ export function createApp() {
    *   เพราะเบราว์เซอร์จะส่ง preflight request (OPTIONS) มาก่อน
    *   ถ้า CORS อยู่ล่าง preflight จะถูกบล็อกก่อนถึง
    */
-  
+  app.use(cors({ origin: config.corsOrigin }));
   /**
    * TODO W07-A2 (🏠 CP14) · เปลี่ยน logger เองเป็น morgan
    *   dev  → morgan('dev')       อ่านง่าย มีสี
    *   prod → morgan('combined')  ละเอียด เหมาะเก็บ log
    * ใช้ config.isProduction ตัดสิน
    */
-  app.use(logger);
+  app.use(morgan(config.isProduction ? 'combined' : 'dev'));
+  
   app.use(express.json());
 
   app.get('/', (req, res) => {
-    res.json({ message: 'Campus Service API is running', version: '2.0.0' });
+    res.json({ message: 'Campus Service API is running', version: '2.5.0' });
   });
   app.use('/api/requests', requestRoutes);
 
