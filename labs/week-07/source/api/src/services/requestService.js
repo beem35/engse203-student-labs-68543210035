@@ -10,6 +10,10 @@ export async function loadSeed() {
   requests = JSON.parse(raw);
   return requests;
 }
+// เพิ่มฟังก์ชัน reset หรือจะใช้ loadSeed() ตรงๆ ก็ได้                                                                      
+export async function reset() {                                                                                    
+  return await loadSeed(); // โหลดข้อมูลตั้งต้นใหม่ทับของเดิม                                                              
+}    
 
 export function findAll({ status } = {}) {
   if (!status) return structuredClone(requests);

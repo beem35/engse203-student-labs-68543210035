@@ -48,12 +48,11 @@ describe("GET /api/requests/:id", () => {
   });
 });
 
-describe("GET /api/requests/:id", () => {
+describe("GET /api/requests/:id ไม่ถูก", () => {
   test("ไม่พบคำร้อง พร้อม status 404", async () => {
-    const res = await request(app).get("/api/requests/REQ-099");
+    const res = await request(app).get("/api/requests/REQ-999");
     assert.equal(res.status, 404);
-    // assert.equal(res.body.id, `REQ-099`);
-    assert.ok(res.body.message || res.body.error);
+    assert.ok(res.body.error);
   });
 });
 
@@ -77,10 +76,18 @@ describe("POST /api/requests/", () => {
     };
     const res = await request(app).post("/api/requests/").send(incompleteData);
     assert.equal(res.status, 400);
-    assert.ok(res.body.message || res.body.error);
+    assert.ok(res.body.error);
   });
 });
 
+describe("POST /api/requests/reset", () => {
+  test("POST ข้อมูลไม่ครบ", async () => {
+    const res = await request(app).post("/api/requests/reset");
+    assert.equal(res.status, 200);
+    const resGet = await request(app).get("/api/requests");
+    assert.equal(resGet.body.length, 3);
+  });
+});
 
 describe('CORS', () => {
   test('ตอบกลับ header ตาม origin ที่อนุญาต', async () => {

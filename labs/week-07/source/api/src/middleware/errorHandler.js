@@ -1,3 +1,5 @@
+import { config } from "../config.js";
+import { Router } from "express";
 /** จับ error ที่หลุดมาจากทุก route — ต้องมี 4 พารามิเตอร์ Express ถึงจะรู้ว่าเป็น error handler */
 export function errorHandler(err, req, res, next) {
   const status = err.status ?? 500;
@@ -19,8 +21,12 @@ export function notFound(req, res) {
 }
 
 export class AppError extends Error {
-  constructor(message, status) {
+  constructor(message, status = 500) {
     super(message);
     this.status = status;
   }
+}
+
+export function asyncHandler(fn) {
+  return (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 }

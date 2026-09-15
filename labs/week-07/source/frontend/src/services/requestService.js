@@ -73,5 +73,6 @@ export async function deleteRequest(requestId) {
 
 /** Week 07 ยังไม่มี endpoint reset — โหลดรายการปัจจุบันกลับมาแทน */
 export async function resetRequests() {
+  await apiFetch(`/api/requests/reset`,{method: 'POST'});
   return getRequests();
 }
