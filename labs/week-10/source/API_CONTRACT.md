@@ -118,6 +118,27 @@ Content-Type: application/json
 **204 No Content** — ไม่มี body ส่งกลับ
 
 ---
+## ผลการทดสอบ SQL Injection
+
+### ① เงื่อนไขที่เป็นจริงเสมอ
+
+**ยิง** `GET /api/requests?status=x' OR '1'='1'`
+**ผลที่ได้** `[]` (0 รายการ) ✓ ถูกป้องกัน
+**เพราะ** ใช้ parameterized query — ค่าถูกตีความเป็นข้อความ ไม่ใช่คำสั่ง
+
+### ② พยายามลบตาราง
+
+**ยิง** `GET /api/requests?status='DROP TABLE requests --'`
+**ผลที่ได้** `[]` (0 รายการ) ✓ ถูกป้องกัน
+**เพราะ** ใช้ parameterized query — ค่าถูกตีความเป็นข้อความ ไม่ใช่คำสั่ง
+
+### ③ ต่อเงื่อนไขเพิ่ม
+
+**ยิง** `GET /api/requests?status=pending'OR status='completed'`
+**ผลที่ได้** `[]` (0 รายการ) ✓ ถูกป้องกัน
+**เพราะ** ใช้ parameterized query — ค่าถูกตีความเป็นข้อความ ไม่ใช่คำสั่ง
+
+---
 
 ## รูปแบบ Error
 
