@@ -8,8 +8,8 @@ export const config = {
   port: Number(process.env.PORT ?? 3001),
   corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
   nodeEnv: process.env.NODE_ENV ?? 'development',
-  dbFile: process.env.DB_FILE ?? './data/campus.db',
-  schemaFile: process.env.SCHEMA_FILE ?? './data/schema.sql',
+  dbFile: process.env.DB_FILE ?? '../data/campus.db',
+  schemaFile: process.env.SCHEMA_FILE ?? '../data/schema.sql',
   get isProduction() {
     return this.nodeEnv === 'production';
   },
