@@ -1,11 +1,11 @@
 {
   "week": "week-09",
   "title": "SQL Fundamentals",
-  "status": "draft",
-  "originalRepoUrl": "",
+  "status": "submitted",
+  "originalRepoUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-0ต/labs/week-09",
   "originalCommit": "",
   "pullRequestUrl": "",
-  "submissionTag": "",
-  "testStatus": "not-tested",
-  "notes": ""
+  "submissionTag": "lab-09-submission-v1",
+  "testStatus": "pass",
+  "notes": "DATA_MODEL.md"
 }
