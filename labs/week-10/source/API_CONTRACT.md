@@ -208,3 +208,46 @@ cd frontend && npm run dev     # http://localhost:5173
 ```
 
 **ลำดับสำคัญ** — เปิด API ก่อนเสมอ ไม่งั้น frontend จะขึ้นข้อความว่าติดต่อเซิร์ฟเวอร์ไม่ได้
+
+---
+
+## ① Data Model
+
+**ตาราง `users`**
+| คอลัมน์ | ชนิดข้อมูล | Constraint |
+|---|---|---|
+| `id` | INTEGER | PRIMARY KEY AUTOINCREMENT |
+| `name` | TEXT | NOT NULL |
+| `email` | TEXT | UNIQUE |
+
+**ตาราง `requests`**
+| คอลัมน์ | ชนิดข้อมูล | Constraint |
+|---|---|---|
+| `id` | TEXT | PRIMARY KEY |
+| `requester_id` | INTEGER | NOT NULL, FOREIGN KEY REFERENCES users(id) |
+| `request_type` | TEXT | NOT NULL, CHECK (request_type IN ('แจ้งซ่อม', 'บริการบัญชีผู้ใช้', 'ขอใช้อุปกรณ์', 'อื่น ๆ')) |
+| `location` | TEXT | NOT NULL |
+| `details` | TEXT | NOT NULL |
+| `priority` | TEXT | NOT NULL |
+| `status` | TEXT | NOT NULL, CHECK (status IN ('pending', 'in-progress', 'completed')) |
+
+---
+
+## ② ข้อสังเกตเรื่องรูปแบบ
+
+- **โครงสร้างในฐานข้อมูลไม่เหมือนรูปแบบที่ API ส่งออก**
+  - ฐานข้อมูลเก็บ `requester_id` (ตัวเลข) เพื่อไม่ให้ข้อมูลซ้ำ
+  - API คืน `requesterName` (ชื่อ) เพราะ frontend ต้องการแบบนั้น
+  - ชั้น service เป็นตัวแปลงด้วย JOIN และ AS
+
+---
+
+## ③ พฤติกรรมของ POST ⭐ สำคัญที่สุด
+
+- **ถ้าส่ง requesterName ที่ยังไม่มีในระบบ จะสร้าง user ใหม่ให้อัตโนมัติ**
+
+ทำไมข้อนี้สำคัญ — เป็นพฤติกรรมที่คนอื่นเดาไม่ได้จากการดู endpoint อย่างเดียว
+
+ถ้าไม่เขียนไว้ คนที่มาใช้ API ต่อจะไม่รู้ว่าการ POST อาจสร้างผู้ใช้ใหม่ — และอาจสร้างผู้ใช้ขยะโดยไม่ตั้งใจ
+
+> contract มีไว้บอกสิ่งที่เดาไม่ได้ ไม่ใช่แค่ลอกรายการ endpoint
