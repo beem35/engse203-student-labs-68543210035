@@ -18,7 +18,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const API_ROOT = path.resolve(HERE, '../..');
 const DB_FILE = process.env.DB_FILE ?? path.join(API_ROOT, 'data', 'campus.db');
 // const DB_FILE = '';
-const SCHEMA_FILE = path.join(API_ROOT, 'data', 'schema1.sql');
+const SCHEMA_FILE = path.join(API_ROOT, 'data', 'schema.sql');
 // const SCHEMA_FILE = '';
 
 let db;
