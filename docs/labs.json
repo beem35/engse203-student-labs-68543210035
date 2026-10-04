@@ -57,7 +57,7 @@
     "pageUrl": "https://beem35.github.io/engse203-student-labs-68543210035/labs/week-04/",
     "sourceUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-04/labs/week-04/source",
     "hasPublish": true,
-    "sourceEntries": 14
+    "sourceEntries": 13
   },
   {
     "week": "week-05",
@@ -72,7 +72,7 @@
     "pageUrl": "https://beem35.github.io/engse203-student-labs-68543210035/labs/week-05/",
     "sourceUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-05/labs/week-05/source",
     "hasPublish": true,
-    "sourceEntries": 11
+    "sourceEntries": 10
   },
   {
     "week": "week-06",
@@ -133,5 +133,20 @@
     "sourceUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-10/labs/week-10/source",
     "hasPublish": false,
     "sourceEntries": 5
+  },
+  {
+    "week": "week-11",
+    "title": "Campus Service Full-Stack",
+    "status": "submitted",
+    "originalRepoUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-11/labs/week-11",
+    "originalCommit": "47b90e4",
+    "pullRequestUrl": "https://github.com/beem35/engse203-student-labs-68543210035/pull/16",
+    "submissionTag": "lab-11-submission-v1",
+    "testStatus": "pass",
+    "notes": "",
+    "pageUrl": "https://beem35.github.io/engse203-student-labs-68543210035/labs/week-11/",
+    "sourceUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-11/labs/week-11/source",
+    "hasPublish": true,
+    "sourceEntries": 13
   }
 ]
