@@ -4,6 +4,7 @@ import { validateRequest } from '../middleware/validateRequest.js';
 
 const router = Router();
 
+router.post('/reset', controller.resetRequests); 
 // route เจาะจงต้องมาก่อน route ที่มี :id เสมอ
 router.get('/', controller.listRequests);
 router.post('/', validateRequest, controller.createRequest);
