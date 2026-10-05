@@ -7,6 +7,7 @@ import { config } from './config.js';
 import requestRoutes from './routes/requestRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import healthRoutes from './routes/healthRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import { errorHandler, notFound } from './middleware/errorHandler.js';
 
 export function createApp() {
@@ -30,6 +31,7 @@ export function createApp() {
   });
   app.use('/api/health', healthRoutes);
   // 🏫 TODO W13-LOGIN (CP50): import authRoutes แล้วผูกที่ /api/auth
+  app.use('/api/auth', authRoutes);
   app.use('/api/requests', requestRoutes);
   app.use('/api/users', userRoutes);
 
