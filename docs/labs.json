@@ -149,7 +149,6 @@
     "hasPublish": true,
     "sourceEntries": 13
   },
-  {},
   {
     "week": "week-12",
     "title": "Testing-Debuging",
@@ -164,5 +163,19 @@
     "sourceUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-12/labs/week-12/source",
     "hasPublish": false,
     "sourceEntries": 17
+  },{
+    "week": "week-13",
+    "title": "Quality-Security",
+    "status": "submitted",
+    "originalRepoUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-13",
+    "originalCommit": "c2f70ae",
+    "pullRequestUrl": "https://github.com/beem35/engse203-student-labs-68543210035/pull/17",
+    "submissionTag": "lab-13-submission-v1",
+    "testStatus": "pass",
+    "notes": "",
+    "pageUrl": "https://beem35.github.io/engse203-student-labs-68543210035/labs/week-13/",
+    "sourceUrl": "https://github.com/beem35/engse203-student-labs-68543210035/tree/lab/week-13/labs/week-13/source",
+    "hasPublish": true,
+    "sourceEntries": 19
   }
 ]
