@@ -74,7 +74,7 @@ function RequestForm({ onAddRequest }) {
         <select id="requestType" name="requestType" value={form.requestType} onChange={handleChange} {...inputA11y('requestType')}>
           <option value="">-- เลือกประเภท --</option>
           <option value="แจ้งซ่อม">แจ้งซ่อม</option>
-          <option value="ขอใช้ห้อง">ขอใช้ห้อง</option>
+          <option value="ขอใช้ห้อง">ขอใช้อุปกรณ์</option>
           <option value="บริการบัญชีผู้ใช้">บริการบัญชีผู้ใช้</option>
         </select>
         <FieldError id="requestType-error" message={errors.requestType} />
