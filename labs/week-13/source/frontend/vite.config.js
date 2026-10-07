@@ -1,7 +1,20 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  server: {
+    headers: {
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "Referrer-Policy": "no-referrer",
+    },
+  },
+  preview: {
+    headers: {
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "Referrer-Policy": "no-referrer",
+    },
+  },
 });
